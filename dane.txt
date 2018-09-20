@@ -1,5 +1,6 @@
 sdfdsfsdfsdf
 Drt
+dopisanie
 Docker. Projektowanie i wdrazanie aplikacji;Jaroslaw Krochmalski;2018;224;Packt;Docker;978-83-283-3534-9
 Docker dla praktykow;Russ McKendrick, Pethuru Raj;2017;248;Helion;Docker;978-83-283-3972-9
 Docker. Programowanie aplikacji dla zaawansowanych;Russ McKendrick, Scott Gallagher;2018;320;Packt;Docker;978-83-283-4308-5
