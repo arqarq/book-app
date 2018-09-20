@@ -8,5 +8,5 @@ Java. Podstawy. Wydanie X;Cay S. Horstmann;2016;872;Helion;Java;978-83-283-2480-
 Java. Efektywne programowanie;Joshua Bloch;2018;408;OReailly;Java;978-83-283-4576-8
 Uczenie maszynowe;Aurelien Geron;2018;528;OReailly;Machine Learning;978-83-283-4373-3
 Efektywny Python;Brett Slatkin;2015;232;Helion;Python;978-83-283-1540-2
-Efektywny Python;Brett Slatkin;abc;def;Helion;Python;978-83-283-1540-2
+Efektywny Python;Brett Slatkin;abc;defg;Helion;Python;978-83-283-1540-2
 Czysta architektura;Robert C. Martin;2018;386;Helion;Architektura;978-83-283-4225-5
