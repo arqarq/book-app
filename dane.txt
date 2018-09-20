@@ -1,0 +1,12 @@
+Drt
+Docker. Projektowanie i wdrazanie aplikacji;Jaroslaw Krochmalski;2018;224;Packt;Docker;978-83-283-3534-9;;;;; ;;
+Docker dla praktykow;Russ McKendrick, Pethuru Raj;2017;248;Helion;Docker;978-83-283-3972-9
+Docker. Programowanie aplikacji dla zaawansowanych;Russ McKendrick, Scott Gallagher;2018;320;Packt;Docker;978-83-283-4308-5
+Python. Uczenie maszynowe;Sebastian Raschka;2014;416;Packt;Python;978-83-283-3613-1
+Nowoczesne receptury w Javie;Ken Kousen;2018;264;Packt;Java;978-83-283-4073-2
+Java. Podstawy. Wydanie X;Cay S. Horstmann;2016;872;Helion;Java;978-83-283-2480-0
+Java. Efektywne programowanie;Joshua Bloch;2018;408;OReailly;Java;978-83-283-4576-8
+Uczenie maszynowe;Aurelien Geron;2018;528;OReailly;Machine Learning;978-83-283-4373-3
+Efektywny Python;Brett Slatkin;2015;232;Helion;Python;978-83-283-1540-2
+Efektywny Python;Brett Slatkin;abc;def;Helion;Python;978-83-283-1540-2
+Czysta architektura;Robert C. Martin;2018;386;Helion;Architektura;978-83-283-4225-5
