@@ -1,5 +1,3 @@
-﻿# book-app
-zadanie - pobieranie danych z podanego pliku wejściowego i przetwarzanie
+# book-app
+zadanie - pobieranie danych z podanego pliku wej�ciowego i przetwarzanie
 pierwszy wpis testowy
-dodano podpisywanie commitów
-test bez podpisu, ale klucz już jest
