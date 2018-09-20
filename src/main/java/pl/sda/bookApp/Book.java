@@ -5,17 +5,17 @@ class Book {
     private final String author;
     private final int reldate;
     private final int pagecount;
-    private final String publisherrr;
+    private final String publisherrrr;
     private final String type;
     private final String ISBN;
     private final int linenumberinfile;
 
-    Book(String title, String author, int reldate, int pagecount, String publisherrr, String type, String ISBN, int linenumberinfile) {
+    Book(String title, String author, int reldate, int pagecount, String publisherrrr, String type, String ISBN, int linenumberinfile) {
         this.title = title;
         this.author = author;
         this.reldate = reldate;
         this.pagecount = pagecount;
-        this.publisherrr = publisherrr;
+        this.publisherrrr = publisherrrr;
         this.type = type;
         this.ISBN = ISBN;
         this.linenumberinfile = linenumberinfile;
