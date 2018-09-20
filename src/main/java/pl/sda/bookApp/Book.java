@@ -5,7 +5,7 @@ class Book {
     String author;
     int reldate;
     int pagecount;
-    String publisherr;
+    String publisher;
     String type;
     String ISBN;
     int linenumberinfile;
