@@ -1,27 +1,27 @@
 package pl.sda.bookApp;
 
 class Book {
-    String title;
-    String author;
-    int reldate;
-    int pagecount;
-    String publisher;
-    String type;
-    String ISBN;
-    int linenumberinfile;
+    private final String title;
+    private final String author;
+    private final int reldate;
+    private final int pagecount;
+    private final String publisherr;
+    private final String type;
+    private final String ISBN;
+    private final int linenumberinfile;
 
-    Book(String title, String author, int reldate, int pagecount, String publisher, String type, String ISBN, int linenumberinfile) {
+    Book(String title, String author, int reldate, int pagecount, String publisherr, String type, String ISBN, int linenumberinfile) {
         this.title = title;
         this.author = author;
         this.reldate = reldate;
         this.pagecount = pagecount;
-        this.publisher = publisher;
+        this.publisherr = publisherr;
         this.type = type;
         this.ISBN = ISBN;
         this.linenumberinfile = linenumberinfile;
     }
 
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 
