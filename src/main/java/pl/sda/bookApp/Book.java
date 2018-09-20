@@ -15,7 +15,7 @@ class Book {
         this.author = author;
         this.reldate = reldate;
         this.pagecount = pagecount;
-        this.publisherr = publisher;
+        this.publisher = publisher;
         this.type = type;
         this.ISBN = ISBN;
         this.linenumberinfile = linenumberinfile;
