@@ -5,7 +5,7 @@ class Book {
     private final String author;
     private final int reldate;
     private final int pagecount;
-    private final String publisherr;
+    private final String publisher;
     private final String type;
     private final String ISBN;
     private final int linenumberinfile;
@@ -15,7 +15,7 @@ class Book {
         this.author = author;
         this.reldate = reldate;
         this.pagecount = pagecount;
-        this.publisherr = publisher;
+        this.publisher = publisher;
         this.type = type;
         this.ISBN = ISBN;
         this.linenumberinfile = linenumberinfile;
