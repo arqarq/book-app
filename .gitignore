@@ -36,9 +36,9 @@ buildNumber.properties
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
 
-# project specific (default output data file) -----------------------------------------------
-#dane.txt
-dane2.txt
-
 # IntelliJ IDEA -----------------------------------------------------------------------------
 .idea
+
+# project specific --------------------------------------------------------------------------
+#dane.txt
+dane2.txt
