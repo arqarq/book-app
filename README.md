@@ -1,3 +1,3 @@
 # book-app
-zadanie - pobieranie danych z podanego pliku wejúciowego i przetwarzanie
-pierwszy wpis testowy
+zadanie - pobieranie danych z podanego pliku wej≈õciowego i przetwarzanie
+/Java, Maven
