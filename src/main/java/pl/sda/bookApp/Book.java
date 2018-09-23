@@ -8,9 +8,10 @@ class Book {
     private final String publisher;
     private final String type;
     private final String ISBN;
-    private final int linenumberinfile;
+    private final int line_number_in_file;
 
-    Book(String title, String author, int reldate, int pagecount, String publisher, String type, String ISBN, int linenumberinfile) {
+    Book(String title, String author, int reldate, int pagecount, String publisher, String type, String ISBN,
+         int line_number_in_file) {
         this.title = title;
         this.author = author;
         this.reldate = reldate;
@@ -18,7 +19,7 @@ class Book {
         this.publisher = publisher;
         this.type = type;
         this.ISBN = ISBN;
-        this.linenumberinfile = linenumberinfile;
+        this.line_number_in_file = line_number_in_file;
     }
 
     String getTitle() {
@@ -46,6 +47,6 @@ class Book {
     }
 
     int getLineNumberInFile() {
-        return linenumberinfile;
+        return line_number_in_file;
     }
 }
