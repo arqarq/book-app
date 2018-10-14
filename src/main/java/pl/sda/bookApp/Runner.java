@@ -17,11 +17,19 @@ import static pl.sda.bookApp.Inputters.*;
 import static pl.sda.bookApp.Menu.showSpacer;
 
 class Runner {
-    public static void main(String[] args) {
-        System.runFinalizersOnExit(true);
+    private static final byte NORMAL_EXIT = 10;
+    private static final byte NOT_EXISTING_FILE = 11;
+    private static final byte EMPTY_FILE = 12;
+    private static final byte NO_CORRECT_DATA_IN_FILE = 13;
+    private static final byte WRONG_CHOICE = 14;
+    private static final byte WRONG_WRITE_PATH = 15;
+    private static final byte WRITE_FAILURE = 16;
 
+    public static void main(String[] args) {
         List<String> daneklienta = new ArrayList<>();
         List<Book> booklist = new ArrayList<>();
+        System.runFinalizersOnExit(true);
+
         try {
             Path inputpath = Paths.get(giveFilePath());
             if (Files.exists(inputpath) && (Files.size(inputpath) != 0)) {
@@ -34,35 +42,38 @@ class Runner {
                 for (int ii = 0; ii < daneklienta.size(); ii++) {
                     Book temp = setBookFromLine(daneklienta.get(ii), ii);
                     booklist.add(temp);
-                    if (temp.getTitle().equals("!!data_error_in_input_file!!")) {
+//                    if (temp.getTitle().equals("!!data_error_in_input_file!!")) {
+                    if (temp.getISBN().equals("000-00-000-0000-01")) {
                         daneklienta.set(ii, "(!)Błąd w linii numer: " + (ii + 1) + " pliku wejściowego.");
                     }
                 }
             } else if (Files.exists(inputpath) && (Files.size(inputpath) == 0)) {
-                System.out.println("(!)Podano pusty plik i wychodzimy z kodem 12!");
-                System.exit(12); // do uzgodnienia z klientem
+                System.out.format("(!)Podano pusty plik i wychodzimy z kodem %s!%n", EMPTY_FILE);
+                System.exit(EMPTY_FILE); // do uzgodnienia z klientem
             } else {
-                System.out.println("(!)Podano nieistniejący plik i wychodzimy z kodem 11!");
-                System.exit(11); // do uzgodnienia
+                System.out.format("(!)Podano nieistniejący plik i wychodzimy z kodem %s!%n", NOT_EXISTING_FILE);
+                System.exit(NOT_EXISTING_FILE); // do uzgodnienia z klientem
             }
         } catch (IOException | InvalidPathException e) {
-            System.out.println("(!)Podano nieistniejący plik i wychodzimy z kodem 11!");
-            System.exit(11); // do uzgodnienia z klientem
+            System.out.format("(!)Podano nieistniejący plik i wychodzimy z kodem %s!%n", NOT_EXISTING_FILE);
+            System.exit(NOT_EXISTING_FILE); // do uzgodnienia z klientem
         }
 
         showSpacer();
         List<Book> operated = booklist.stream()
-                .filter(book -> !book.getTitle().equals("!!data_error_in_input_file!!"))
+                .filter(book -> !book.getISBN().equals("000-00-000-0000-01"))
                 .collect(Collectors.toList());
         if (operated.size() == 0) {
-            System.out.println("(!)Brak jakichkolwiek prawidłowych danych w pliku wejściowym i wychodzimy z kodem 13!");
-            System.exit(13);
+            System.out.format("(!)Brak jakichkolwiek prawidłowych danych w pliku wejściowym i wychodzimy z kodem %s!%n",
+                    NO_CORRECT_DATA_IN_FILE);
+            System.exit(NO_CORRECT_DATA_IN_FILE);
         }
 
         Menu.showMenu();
 
         List<Book> operated2;
         String what;
+
         switch (giveMenuChoice()) {
             case 1:
                 showSpacer();
@@ -106,15 +117,15 @@ class Runner {
             case 4:
                 System.out.print("Podaj ISBN [000-00-000-0000-0 lub 0000000000000] do wypisania: ");
                 what = giveByWhat().trim().replaceAll("-", "");
-                String what13;
-                try {
-                    what13 = what.substring(0, 13);
-                } catch (StringIndexOutOfBoundsException e) {
-                    what13 = what;
-                }
-                String what2 = what13; // dodatkowa zmienna bo w lambdzie musi być final lub effectively final
+                String what13 = what.length() >= 13 ? what.substring(0, 13) : what;
+//                try {
+//                    what13 = what.substring(0, 13);
+//                } catch (StringIndexOutOfBoundsException e) {
+//                    what13 = what;
+//                }
+//                String what2 = what13; // dodatkowa zmienna bo w lambdzie musi być final lub effectively final
                 operated2 = operated.stream()
-                        .filter(book -> book.getISBN().replaceAll("-", "").equals(what2))
+                        .filter(book -> book.getISBN().replaceAll("-", "").equals(what13))
                         .collect(Collectors.toList());
                 showSpacer();
                 if (operated2.size() == 0) {
@@ -147,17 +158,20 @@ class Runner {
                     BufferedWriter bufferedWriter = Files.newBufferedWriter(outputpath);
                     bufferedWriter.close();
                 } catch (InvalidPathException | IOException e) {
-                    System.out.println("(!)Podano niewłaściwą scieżkę zapisu i wychodzimy z kodem 15!");
-                    System.exit(15);
+                    System.out.format("(!)Podano niewłaściwą scieżkę zapisu i wychodzimy z kodem %s!%n", WRONG_WRITE_PATH);
+                    System.exit(WRONG_WRITE_PATH);
                 }
                 showSpacer();
-                operated2 = operated.stream()
+                operated2 = operated.stream() // bez błędnych linii, do wyświetlenia
                         .sorted(Comparator.comparing(Book::getTitle))
                         .collect(Collectors.toList());
                 System.out.format("Posortowano według tytułów...%n%n");
                 for (Book book : operated2) {
                     System.out.println("\"" + daneklienta.get(book.getLineNumberInFile() - 1) + "\"");
                 }
+                operated2 = booklist.stream() // z błędnymi liniami, do pliku
+                        .sorted(Comparator.comparing(Book::getTitle))
+                        .collect(Collectors.toList());
                 try {
                     BufferedWriter bufferedWriter = Files.newBufferedWriter(outputpath);
                     for (Book book : operated2) {
@@ -168,17 +182,17 @@ class Runner {
                     bufferedWriter.close();
                 } catch (IOException e) {
                     System.out.format("%n(!)...i coś poszło źle z zapisem, dostałeś komunikat systemowy: \"%s\",%n", e.getCause());
-                    System.out.println("(!)czyli wychodzimy z kodem 16!");
-                    System.exit(16);
+                    System.out.format("(!)czyli wychodzimy z kodem %s!%n", WRITE_FAILURE);
+                    System.exit(WRITE_FAILURE);
                 }
                 break;
             default:
-                System.out.println("(!)Podano niewłaściwy wybór i wychodzimy z kodem 14!");
-                System.exit(14); // do uzgodnienia z klientem
+                System.out.format("(!)Podano niewłaściwy wybór i wychodzimy z kodem %s!%n", WRONG_CHOICE);
+                System.exit(WRONG_CHOICE); // do uzgodnienia z klientem
         }
 
         showSpacer();
-        System.out.println("Program kończy pracę bez problemów (kod 10).");
-        System.exit(10);
+        System.out.format("Program kończy pracę bez problemów (kod %s).%n", NORMAL_EXIT);
+        System.exit(NORMAL_EXIT);
     }
 }

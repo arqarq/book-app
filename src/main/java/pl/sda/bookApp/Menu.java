@@ -1,7 +1,7 @@
 package pl.sda.bookApp;
 
 class Menu {
-    static void showMenu(){
+    static void showMenu() {
         System.out.println("Wybierz opcję - wpisz cyfrę i naciśnij ENTER.");
         System.out.println("1. Wypisz książkę z największą liczbą stron");
         System.out.println("2. Posortuj i wypisz książki według roku wydania (od najnowszej)");
@@ -11,7 +11,7 @@ class Menu {
         System.out.println("6. Zapisz do wskazanego pliku posortowane alfabetycznie (według tytułu) książki");
     }
 
-    static void showSpacer(){
+    static void showSpacer() {
         System.out.println("* * * * * * * * * * * * * * * * * * * * *");
     }
 }

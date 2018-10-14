@@ -27,10 +27,13 @@ class Converters {
         } else {
             System.out.println("(!)Zły format danych w linii: " + linenumber + ", z zawartością:");
             System.out.println("(!)\"" + line + "\"");
-            return new Book("!!data_error_in_input_file!!", "", 0, 0, "",
+            return new Book("", "", 0, 0, "",
                     "", "000-00-000-0000-01", linenumber);
-            // " " dla błędnych linii, bo spacja jest potem trimowana(), żeby nie wyszukiwało dla "" (ENTERa)
-            // błędny ISBN, poprawia wyszukiwanie przy błędnych wpisach w pliku wejściowym
+            // błędny ISBN, oznaczający obiekt pochodzący z pozycji z nieprawidłowymi danymi, 14 cyfr:
+            // - ostatnia usuwana przy szukaniu po ISBN;
+            // - niewykluczony prawidłowy numer 000-00-000-0000-0 w danych wejściowych
+            // - dopuszczenie tytułu książki "!!data_error_in_input_file!!", dla zasady (nie jest to już znacznik złej
+            // linii danych pliku wejściowego)
         }
     }
 

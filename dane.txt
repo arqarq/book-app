@@ -7,8 +7,10 @@ Docker. Programowanie aplikacji dla zaawansowanych;Russ McKendrick, Scott Gallag
 Python. Uczenie maszynowe;Sebastian Raschka;2014;416;Packt;Python;978-83-283-3613-1
 Nowoczesne receptury w Javie;Ken Kousen;2018;264;Packt;Java;978-83-283-4073-2
 Java. Podstawy. Wydanie X;Cay S. Horstmann;2016;872;Helion;Java;978-83-283-2480-0
+dfgdfgdg
 Java. Efektywne programowanie;Joshua Bloch;2018;408;OReailly;Java;978-83-283-4576-8
 Uczenie maszynowe;Aurelien Geron;2018;528;OReailly;Machine Learning;978-83-283-4373-3
 Efektywny Python;Brett Slatkin;2015;232;Helion;Python;978-83-283-1540-2
-Efektywny Python;Brett Slatkin;abc;defg;Helion;Python;978-83-283-1540-2
+Afektywny Aython;Brett Slatkin;1015;131;Helion;Python;978-83-283-1540-2
+_Efektywny Python;Brett Slatkin;abc;defg;Helion;Python;978-83-283-1540-2
 Czysta architektura;Robert C. Martin;2018;386;Helion;Architektura;978-83-283-4225-5
