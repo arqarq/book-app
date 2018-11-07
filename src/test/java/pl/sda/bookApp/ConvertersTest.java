@@ -1,13 +1,14 @@
 package pl.sda.bookApp;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 import static pl.sda.bookApp.Converters.setBookFromLine;
 
-class ConvertersTest {
+public class ConvertersTest {
     @Test
-    void setBookFromLineTest() {
+    public void setBookObjectFromLine() {
         // Given
         Book book;
         String line = " Title ; Author ; 1958 ; 22000 ; Publisher ; Type ; 012-34-567-8901-2 ";
@@ -15,6 +16,7 @@ class ConvertersTest {
         // When
         book = setBookFromLine(line, linenumber);
         // Then
+        assertEquals(book.getTitle(), "Title");
         assertThat(book.getTitle()).isEqualTo("Title");
         assertThat(book.getAuthor()).isEqualTo("Author");
         assertThat(book.getReldate()).isEqualTo(1958);
