@@ -28,7 +28,6 @@ class Runner {
     public static void main(String[] args) {
         List<String> daneklienta = new ArrayList<>();
         List<Book> booklist = new ArrayList<>();
-        System.runFinalizersOnExit(true);
 
         try {
             Path inputpath = Paths.get(giveFilePath());
