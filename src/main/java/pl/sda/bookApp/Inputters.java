@@ -2,6 +2,8 @@ package pl.sda.bookApp;
 
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 class Inputters {
     static String giveFilePath() {
         System.out.print("Podaj ścieżkę do pliku z danymi [ENTER = \"dane.txt\"]: "); // welcome
@@ -45,7 +47,7 @@ class Inputters {
             i++;
         }
         try {
-            return Integer.valueOf(menuChoice);
+            return parseInt(menuChoice);
         } catch (NumberFormatException e) {
             return 0;
         }

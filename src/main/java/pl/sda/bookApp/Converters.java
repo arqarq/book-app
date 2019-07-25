@@ -1,5 +1,7 @@
 package pl.sda.bookApp;
 
+import static java.lang.Integer.parseInt;
+
 class Converters {
     static Book setBookFromLine(String line, int linenumber) {
         String[] linee = line.split(";");
@@ -38,6 +40,6 @@ class Converters {
     }
 
     private static int getCountableFromString(String value) throws NumberFormatException {
-        return Integer.valueOf(value);
+        return parseInt(value);
     }
 }
